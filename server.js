@@ -213,9 +213,8 @@ app.post('/signup', async (req, res) => {
      // Create a new user
       await connection.collection('users').insertOne({ name, email, password, userId });
   
-      res.status(201).json({ message: 'User created successfully' });
-    
-    
+      res.status(201).json({ userId: userId });
+      
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal Server Error' });
