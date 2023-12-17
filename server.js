@@ -211,7 +211,7 @@ app.post('/signup', async (req, res) => {
     }
   
      // Create a new user
-      await connection.collection('users').insertOne({ name, email, password });
+      await connection.collection('users').insertOne({ name, email, password, userId });
   
       res.status(201).json({ message: 'User created successfully' });
     
