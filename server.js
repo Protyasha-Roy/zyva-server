@@ -200,7 +200,7 @@ app.delete('/delete/:parentId/:customId/:isSingleNote', async (req, res) => {
 
 
 app.post('/signup', async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, userId } = req.body;
 
   try {
     // Check if the email already exists
