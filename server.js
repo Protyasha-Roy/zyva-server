@@ -37,7 +37,7 @@ app.post('/createFilesAndFolders', async (req, res) => {
       case 'folder':
         const foundFolder = await connection.collection('filesAndFoldersCollection').findOne({
           title: receivedData.title,
-          email: receivedData.email,
+          userId: receivedData.userId,
           isFolder: receivedData.isFolder
         });
 
@@ -52,7 +52,7 @@ app.post('/createFilesAndFolders', async (req, res) => {
       case 'singleNote':
         const foundSingleNote = await connection.collection('filesAndFoldersCollection').findOne({
           title: receivedData.title,
-          email: receivedData.email,
+          userId: receivedData.userId,
           isSingleNote: receivedData.isSingleNote
         });
 
@@ -67,7 +67,7 @@ app.post('/createFilesAndFolders', async (req, res) => {
       case 'noteInsideFolder':
         const noteExists = await connection.collection('filesAndFoldersCollection').findOne({
           'customId': receivedData.belongsToFolderId,
-          'notes': { $elemMatch: { 'title': receivedData.title, 'email': receivedData.email, isNoteInsideFolder: receivedData.isNoteInsideFolder } }
+          'notes': { $elemMatch: { 'title': receivedData.title, 'userId': receivedData.userId, isNoteInsideFolder: receivedData.isNoteInsideFolder } }
         });
 
         if (noteExists) {
