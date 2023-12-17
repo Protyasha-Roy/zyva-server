@@ -234,7 +234,7 @@ app.post('/signin', async (req, res) => {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
 
-    res.status(200).json({ message: 'Signin successful', userSignedIn: true });
+    res.status(200).json({ message: 'Signin successful', user });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal Server Error' });
