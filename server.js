@@ -93,10 +93,10 @@ app.post('/createFilesAndFolders', async (req, res) => {
 
 
 
-app.get('/allFilesAndFolders/:signedInEmail', async (req, res) => {
+app.get('/allFilesAndFolders/:userId', async (req, res) => {
   try {
-    const signedInEmail = req.params.signedInEmail;
-    const documents = await connection.collection('filesAndFoldersCollection').find({ email: signedInEmail }).toArray();
+    const userId = req.params.userId;
+    const documents = await connection.collection('filesAndFoldersCollection').find({ userId: userId }).toArray();
     res.json(documents);
   } catch (error) {
     console.error('Error fetching documents:', error);
