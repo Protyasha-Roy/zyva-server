@@ -28,6 +28,7 @@ app.get('/', (req, res) => {
 });
 
 
+
 app.post('/createFilesAndFolders', async (req, res) => {
   const receivedData = req.body;
   const fileType = receivedData.fileType;
