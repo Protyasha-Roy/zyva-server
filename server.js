@@ -143,6 +143,7 @@ app.put('/updateContent/:parentId/:customId/:isSingleNote', async (req, res) => 
         {_id: new ObjectId(parentId)},
         {$set: {content: req.body.contentToUpdate}}
       );
+      res.status(200).json({ message: 'updated' });
     }
 
     else {
@@ -155,6 +156,7 @@ app.put('/updateContent/:parentId/:customId/:isSingleNote', async (req, res) => 
           'notes.$.content': req.body.contentToUpdate
         }
       });
+      res.status(200).json({ message: 'updated' });
     }
 
   } catch (error) {
